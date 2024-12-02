@@ -24,7 +24,7 @@ export const fetchMultiplePokemonById = createAsyncThunk(
         name: data.names.find((el) => el.language.name === "ko").name,
         description: data.flavor_text_entries.find(
           (el) => el.language.name === "ko"
-        ).flavor_text,
+        ),
         front: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`,
         back: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${pokemonId}.png`,
       };
