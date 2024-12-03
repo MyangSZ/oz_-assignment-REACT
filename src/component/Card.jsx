@@ -15,17 +15,32 @@ const CardContainer = styled.section`
   border-radius: 10px;
   border-bottom: 3px solid gray;
   border-right: 3px solid gray;
+
+  img {
+    width: 120px;
+  }
 `;
+
 // 포켓몬 카드정보
-export const Card = ({ pokemon }) => {
+export const Card = memo(({ pokemon }) => {
+  const [isImageLoading, setIsImageLoading] = useState(true);
   const navigate = useNavigate();
   return (
     <CardContainer onClick={() => navigate(`/detail/${pokemon.id}`)}>
-      <img src={pokemon.front} />
+      {isImageLoading ? (
+        <div className="w-[120px] h-[120px] leading-[120px] text-center">
+          ... 로딩중!!
+        </div>
+      ) : null}
+      <img
+        onLoad={() => setIsImageLoading(false)}
+        src={pokemon.front}
+        styld={{ display: isImageLoading ? "none" : "block" }}
+      />
       <div>
         {pokemon.name}
         <FavoriteButton pokemonId={pokemon.id} />
       </div>
     </CardContainer>
   );
-};
+});

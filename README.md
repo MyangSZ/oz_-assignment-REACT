@@ -14,6 +14,8 @@ description: data.description: data.flavor_text_entries.find(
 -> description: data.flavor_text_entries.find(
 (el) => el.language.name === "ko"), 로 수정
 
+- 24.12.03
+
 ### 검색, 찜목록 만들기
 
 검색어 입력시 화면에 적용 되도록
@@ -22,3 +24,7 @@ description: data.description: data.flavor_text_entries.find(
 ### 스타일 적용하기
 
 styled-component, tailwind, sass 사용하기
+
+### 최적화 하기
+
+코드 스플리팅
